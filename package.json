@@ -1,0 +1,23 @@
+{
+  "name": "test-ocr-microservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "docker-compose --env-file=.env up -d",
+    "start:build": "docker-compose --env-file=.env up -d --build",
+    "stop": "docker-compose --env-file=.env down"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vova-rsk/test-ocr-microservice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vova-rsk/test-ocr-microservice/issues"
+  },
+  "homepage": "https://github.com/vova-rsk/test-ocr-microservice#readme"
+}
