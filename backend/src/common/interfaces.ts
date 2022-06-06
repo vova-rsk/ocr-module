@@ -5,5 +5,8 @@ export interface IMessageData {
 
 export interface IOcrResponse {
   id: string;
-  textData: string;
+  fileUrl: string;
+  status: string;
+  textData?: string;
+  error?: string;
 }

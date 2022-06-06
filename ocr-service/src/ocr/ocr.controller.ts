@@ -14,11 +14,15 @@ export class OcrController {
   @MessagePattern(enums.RmqEvents.urlTransfer)
   async getUrlForOcr(messageData: MessageDto) {
     const { id, fileUrl } = messageData;
-    const textData = await this.ocrService.getTextFromImage(fileUrl, id);
+    const result = await this.ocrService.getTextFromImage(fileUrl, id);
 
     this.client.emit<string, interfaces.IOcrResponse>(
       enums.RmqEvents.textTransfer,
-      { id, textData },
+      {
+        id,
+        fileUrl,
+        ...result,
+      },
     );
 
     console.log(

@@ -9,7 +9,7 @@ export class OcrService {
 
     const digitalize = async (imageUrl: string, language: string) => {
       console.log(
-        `Start digitalizing image from request id=${id}. Please wait...`,
+        `Starting digitalizing image from request id=${id}. Please wait...`,
       );
 
       await worker.load();
@@ -19,10 +19,18 @@ export class OcrService {
       const { data } = await worker.recognize(imageUrl);
 
       await worker.terminate();
-      return data.text;
+      return { status: 'success', textData: data.text };
     };
 
-    const textData = await digitalize(fileUrl, enums.Languages.en);
-    return textData;
+    try {
+      const textData = await digitalize(fileUrl, enums.Languages.en);
+      return textData;
+    } catch (error) {
+      console.log(
+        `There was an error processing the image from request id=${id}`,
+      );
+
+      return { status: 'error', error: (<Error>error).message };
+    }
   }
 }
