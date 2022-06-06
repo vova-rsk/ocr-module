@@ -1,8 +1,8 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { v4 as uuidv4 } from 'uuid';
-import { enums, interfaces } from 'src/common';
-import isImageCheck from 'src/helpers';
+import { enums, interfaces } from '../common';
+import isImageCheck from '../helpers';
 
 @Injectable()
 export class MediaService {

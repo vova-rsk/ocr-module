@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { interfaces } from 'src/common';
+import { interfaces } from '../common';
 
 @Injectable()
 export class ArchiveService {

@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
-import { enums } from 'src/common';
+import { enums } from '../common';
 import { IOcrResponse } from 'src/common/interfaces';
 import { ArchiveService } from './archive.service';
 

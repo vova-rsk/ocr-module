@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { createWorker } from 'tesseract.js';
-import { enums } from 'src/common';
+import { enums } from '../common';
 
 @Injectable()
 export class OcrService {

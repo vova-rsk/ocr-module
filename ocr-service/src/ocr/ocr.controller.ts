@@ -1,6 +1,6 @@
 import { Controller, Inject } from '@nestjs/common';
 import { MessagePattern, ClientProxy } from '@nestjs/microservices';
-import { enums, interfaces } from 'src/common';
+import { enums, interfaces } from '../common';
 import { MessageDto } from './dto/messageData.dto';
 import { OcrService } from './ocr.service';
 
