@@ -19,7 +19,7 @@ export class MediaController {
     const result = await this.mediaService.sendToQueue(linkDto.fileUrl);
 
     return {
-      statusCode: HttpStatus.OK,
+      statusCode: HttpStatus.CREATED,
       status: 'success',
       message: result,
     };

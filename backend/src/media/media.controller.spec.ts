@@ -75,7 +75,7 @@ describe('send valid url', () => {
     const fileUrl = 'https://www.pixabay.com/asdsadds.jpg';
     const result = `File url was successfully send for processing with request id=${id}`;
     const res = {
-      statusCode: 200,
+      statusCode: 201,
       status: 'success',
       message: result,
     };
