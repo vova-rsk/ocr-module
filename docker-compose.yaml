@@ -5,7 +5,7 @@ services:
     image: rabbitmq:3.10.5-alpine
     restart: on-failure
     ports:
-      - ${RMQ_PORT}:${RMQ_PORT}
+      - ${RMQ_PORT}:5672
 
   app:
     build:
