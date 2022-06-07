@@ -12,7 +12,7 @@ import { MediaService } from './media.service';
         name: 'OCR_SERVICE',
         transport: Transport.RMQ,
         options: {
-          urls: [`amqp://rabbitmq:${env.RMQ_PORT}`],
+          urls: [`amqp://${env.RMQ_HOST}:${env.RMQ_PORT}`],
           queue: enums.Queues.url,
           queueOptions: {
             durable: false,

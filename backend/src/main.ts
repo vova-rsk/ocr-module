@@ -12,7 +12,7 @@ async function bootstrap() {
   app.connectMicroservice({
     transport: Transport.RMQ,
     options: {
-      urls: [`amqp://rabbitmq:${env.RMQ_PORT}`],
+      urls: [`amqp://${env.RMQ_HOST}:${env.RMQ_PORT}`],
       queue: enums.Queues.ocr,
       queueOptions: {
         durable: false,
