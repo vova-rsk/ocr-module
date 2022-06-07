@@ -27,7 +27,8 @@ services:
     env_file: ./.env
     volumes:
       - ./ocr-service/src:/usr/src/app/src
-      - ./ocr-service/test:/usr/src/app/test    
+      - ./ocr-service/test:/usr/src/app/test
+    restart: on-failure    
     ports:
       - ${OCR_SERVICE_PORT}:${OCR_SERVICE_PORT}
     depends_on:

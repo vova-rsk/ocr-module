@@ -11,6 +11,7 @@ async function bootstrap() {
       urls: [`amqp://${env.RMQ_HOST}:${env.RMQ_PORT}`],
       queue: enums.Queues.url,
       noAck: false,
+      prefetchCount: 1,
       queueOptions: {
         durable: false,
       },
