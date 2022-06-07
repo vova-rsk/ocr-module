@@ -2,7 +2,9 @@
 
 test task. app that gets image url, sends it via RabbitMQ to ocr-microservice and recieves back digitized text data.
 
-Before running app create settings file named ".env" in the root dir and set our ports or the same as in .env.example file.
+How to test:
 
-To run app use command "npm start" or "npm run start:dev" from the main directory.
+1. Clone repository.
+2. Create settings file ".env" in the root app dir and set your ports settings or the same as in .env.example file.
+3. From the root app dir run command "npm start" or "npm run start:dev" to start the app and ocr-microservice.
 
