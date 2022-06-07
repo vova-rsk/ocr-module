@@ -10,6 +10,7 @@ async function bootstrap() {
     options: {
       urls: [`amqp://rabbitmq:${env.RMQ_PORT}`],
       queue: enums.Queues.url,
+      noAck: false,
       queueOptions: {
         durable: false,
       },

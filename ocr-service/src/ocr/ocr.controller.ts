@@ -1,5 +1,11 @@
 import { Controller, Inject } from '@nestjs/common';
-import { MessagePattern, ClientProxy } from '@nestjs/microservices';
+import {
+  MessagePattern,
+  ClientProxy,
+  Payload,
+  Ctx,
+  RmqContext,
+} from '@nestjs/microservices';
 import { enums, interfaces } from '../common';
 import { MessageDto } from './dto/messageData.dto';
 import { OcrService } from './ocr.service';
@@ -12,7 +18,12 @@ export class OcrController {
   ) {}
 
   @MessagePattern(enums.RmqEvents.urlTransfer)
-  async getUrlForOcr(messageData: MessageDto) {
+  async getUrlForOcr(
+    @Payload() messageData: MessageDto,
+    @Ctx() context: RmqContext,
+  ) {
+    const channel = context.getChannelRef();
+    const originalMsg = context.getMessage();
     const { id, fileUrl } = messageData;
     const result = await this.ocrService.getTextFromImage(fileUrl, id);
 
@@ -28,5 +39,7 @@ export class OcrController {
     console.log(
       `Request id=${id} was successfully processed and the response was sent back to the sender`,
     );
+
+    channel.ack(originalMsg);
   }
 }
